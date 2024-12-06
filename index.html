@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Father's Mood Selector</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <h1>Hey Doddy, How Are You Feeling Today?</h1>
+    </header>
+
+    <main>
+        <div class="container">
+            <label for="mood">Select Your Mood:</label>
+            <select id="mood">
+                <option value="" disabled selected>--Choose a Mood--</option>
+                <option value="happy">Happy</option>
+                <option value="sad">Sad</option>
+                <option value="stressed">Stressed</option>
+                <option value="angry">Angry</option>
+                <option value="tired">Tired</option>
+                <option value="proud">Proud</option>
+            </select>
+            <button id="showAnswer">Get Answer</button>
+            <div id="response" class="response"></div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Mood Selector for Fathers</p>
+    </footer>
+
+    <script>
+        const showAnswerButton = document.getElementById('showAnswer');
+        const responseDiv = document.getElementById('response');
+        const moodResponses = {
+            happy: "That's great! Celebrate the little joys and share the happiness with your loved ones.",
+            sad: "It's okay to feel sad sometimes. Take a moment for yourself, or talk to someone you trust.",
+            stressed: "Take a deep breath. Consider a short break or a walk to clear your mind.",
+            angry: "Anger is natural, but it’s important to express it calmly. Try some deep breathing exercises.",
+            tired: "Parenting is tough! Rest when you can, and remember you’re doing your best.",
+            proud: "You deserve to feel proud! Celebrate your accomplishments, big or small."
+        };
+
+        showAnswerButton.addEventListener('click', () => {
+            const selectedMood = document.getElementById('mood').value;
+            if (selectedMood) {
+                responseDiv.textContent = moodResponses[selectedMood];
+            } else {
+                responseDiv.textContent = "Please select a mood from the dropdown.";
+            }
+        });
+    </script>
+</body>
+
+</html>
+            
